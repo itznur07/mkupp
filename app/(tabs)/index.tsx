@@ -1,31 +1,38 @@
-import { StyleSheet } from 'react-native';
-
-import EditScreenInfo from '../../components/EditScreenInfo';
-import { Text, View } from '../../components/Themed';
-
-export default function TabOneScreen() {
+import { Entypo } from '@expo/vector-icons';
+import { StatusBar } from 'expo-status-bar';
+import { Pressable, Text, View } from 'react-native';
+import SearchBar from '../../components/SearchBar';
+import TopBar from '../../components/TopBar';
+import ModalScreen from '../modal';
+export default function Home() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Mkupp</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/(tabs)/index.tsx" />
+    <View style={{ backgroundColor: '#171719', height: '100%', paddingHorizontal: 20 }}>
+      <TopBar />
+      {/* headline */}
+      <Text style={{ color: 'white', fontSize: 24, fontWeight: '600' }}>Be Productive today!</Text>
+      {/* search bar */}
+      <SearchBar />
+      {/* add task button */}
+      <Pressable
+        onPress={() => <ModalScreen />}
+        style={{
+          position: 'absolute',
+          left: 0,
+          right: 0,
+          bottom: 24,
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'center',
+          gap: 10,
+          backgroundColor: 'dodgerblue',
+          paddingVertical: 14,
+          marginHorizontal: 24,
+          borderRadius: 10,
+        }}>
+        <Text style={{ fontWeight: '500', color: 'white', fontSize: 16 }}>Add new task</Text>
+        <Entypo name="plus" size={24} color="white" />
+      </Pressable>
+      <StatusBar style="light" />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
-  },
-});
