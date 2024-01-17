@@ -10,7 +10,7 @@ const SearchBar = () => {
         style={{
           color: '#fff',
           marginTop: 24,
-          paddingVertical: 10,
+          paddingVertical: 14,
           paddingHorizontal: 24,
           backgroundColor: '#272728',
           borderRadius: 10,
@@ -19,7 +19,7 @@ const SearchBar = () => {
         placeholder="Search task"
       />
       <Feather
-        style={{ position: 'absolute', top: 35, right: 15 }}
+        style={{ position: 'absolute', top: 40, right: 15 }}
         name="search"
         size={24}
         color="#fff"
